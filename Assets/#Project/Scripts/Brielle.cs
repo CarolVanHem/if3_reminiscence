@@ -17,8 +17,8 @@ public class Brielle : MonoBehaviour
     Transform player;
     public Transform waypoints;
     Transform currentTarget;
-    public float maxViewDistance = 20;
-    public float maxViewAngle = 180;
+    public float maxViewDistance = 15;
+    public float maxViewAngle = 90;
 
     void Start ()
     {
@@ -64,14 +64,17 @@ public class Brielle : MonoBehaviour
                 RaycastHit hit;
                 Vector3 origin = transform.position + Vector3.up;
                 Debug.DrawRay(origin, (player.position-transform.position).normalized * 100, Color.red, 5f);
+                
                 if(Physics.Raycast(origin, player.position-transform.position, out hit, maxViewDistance))
-                {           
-                        
+                {                   
+                    return true;  
+                    
+                    /*
                     if(hit.collider.CompareTag("Player"))
                     {
-                    Debug.Log($"{hit.collider.tag} - {hit.collider.name} - {hit.distance}");
-                        return true;  
+                        Debug.Log($"{hit.collider.tag} - {hit.collider.name} - {hit.distance}");
                     }
+                    */
                 }
             }
         }
