@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal.Internal;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Brielle : MonoBehaviour
 {
     public enum BrielleState{
@@ -17,8 +18,9 @@ public class Brielle : MonoBehaviour
     Transform player;
     public Transform waypoints;
     Transform currentTarget;
-    public float maxViewDistance = 15;
-    public float maxViewAngle = 90;
+    public float maxViewDistance = 10;
+    public float maxViewAngle = 360;
+    [HideInInspector] public Brielle brielle;
 
     void Start ()
     {

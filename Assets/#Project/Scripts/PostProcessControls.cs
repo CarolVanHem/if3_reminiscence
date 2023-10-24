@@ -36,8 +36,8 @@ public class PostProcessControls : MonoBehaviour
             _vignette.smoothness.value = 1f;
             _colorAdjustments.postExposure.value = -2.2f;
             _colorAdjustments.contrast.value = 30f;
-
         }
+        
         else
         {
             _vignette.intensity.value = 0f;
