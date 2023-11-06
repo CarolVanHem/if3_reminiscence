@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,9 +19,11 @@ public class Brielle : MonoBehaviour
     Transform player;
     public Transform waypoints;
     Transform currentTarget;
-    public float maxViewDistance = 10;
+    public float maxViewDistance = 7;
     public float maxViewAngle = 360;
     [HideInInspector] public Brielle brielle;
+    public float chasingSpeed = 6f;
+    public float wanderingSpeed = 4f;
 
     void Start ()
     {
@@ -35,6 +38,7 @@ public class Brielle : MonoBehaviour
         switch (state)
         {
             case BrielleState.Wandering:
+            agent.speed = wanderingSpeed;
                 
                 if(IsPlayerVisible()){
                     state = BrielleState.Chasing;
@@ -49,6 +53,8 @@ public class Brielle : MonoBehaviour
 
             case BrielleState.Chasing:
                 FollowPlayer();
+                agent.speed = chasingSpeed;
+                
 
                 if(!IsPlayerVisible()){
                     state = BrielleState.Wandering;

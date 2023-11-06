@@ -6,12 +6,13 @@ public class Footsteps : MonoBehaviour
 {
     public AudioSource walkingSound;
     public AudioSource runningSound;
-    private Brielle brielle;
-    public float newMaxViewDistance = 50;
+    public Brielle brielle;
+    public float newMaxViewDistance = 100;
+    public float normalMaxViewDistance;
 
     void Start()
     {
-        brielle = GetComponent<Brielle>();
+        normalMaxViewDistance = brielle.maxViewDistance;
     }
 
     void Update()
@@ -30,6 +31,7 @@ public class Footsteps : MonoBehaviour
             {
                 walkingSound.enabled = true;
                 runningSound.enabled = false;
+                brielle.maxViewDistance = normalMaxViewDistance;
             }
         }
         else
@@ -37,7 +39,5 @@ public class Footsteps : MonoBehaviour
             walkingSound.enabled = false;
             runningSound.enabled = false;
         }
-
-  
     }
 }
