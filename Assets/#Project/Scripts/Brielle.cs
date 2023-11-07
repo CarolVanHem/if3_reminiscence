@@ -23,7 +23,7 @@ public class Brielle : MonoBehaviour
     public float maxViewAngle = 360;
     [HideInInspector] public Brielle brielle;
     public float chasingSpeed = 6f;
-    public float wanderingSpeed = 4f;
+    public float wanderingSpeed = 2f;
 
     void Start ()
     {

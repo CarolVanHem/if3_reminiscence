@@ -11,7 +11,6 @@ public class PickUpObjects : MonoBehaviour
 
     public float throwForce = 500f; 
     public float pickUpRange = 5f; 
-    private float rotationSensitivity = 1f; 
     private GameObject heldObj; 
     private Rigidbody heldObjRb; 
     private bool canDrop = true; 
@@ -19,6 +18,7 @@ public class PickUpObjects : MonoBehaviour
     public InputActionAsset actions;
     private InputAction look;
     //private InputAction rotate;
+    //private float rotationSensitivity = 1f; 
 
     void OnEnable(){
         actions.FindActionMap("Player").Enable();
@@ -34,7 +34,6 @@ public class PickUpObjects : MonoBehaviour
     {
         look = actions.FindActionMap("Player").FindAction("Look");
         //rotate = actions.FindActionMap("ObjectRotation").FindAction("Rotate");
-        
     }
 
     void Start()
@@ -68,7 +67,7 @@ public class PickUpObjects : MonoBehaviour
         if (heldObj != null) 
         {
             MoveObject(); 
-            RotateObject();
+            //RotateObject();
             if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) 
             {
                 StopClipping();
@@ -105,6 +104,8 @@ public class PickUpObjects : MonoBehaviour
         //keep object position the same as the holdPosition position
         heldObj.transform.position = holdPos.transform.position;
     }
+
+    /*
     void RotateObject()
     {
         if (Input.GetKey(KeyCode.R))
@@ -128,6 +129,8 @@ public class PickUpObjects : MonoBehaviour
             //rotate.Disable();
         }
     }
+    */
+
     void ThrowObject()
     {
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
