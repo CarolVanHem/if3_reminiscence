@@ -1191,6 +1191,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412379699}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &422724913 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5392731195523953032, guid: e6fe2380b0cb83541b54807317073317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5966784005621980801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539646692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,15 +2244,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1205959269}
+  - {fileID: 422724913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1205959269 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6555674493575791231, guid: e6fe2380b0cb83541b54807317073317,
-    type: 3}
-  m_PrefabInstance: {fileID: 5966784005621980801}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207963104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,7 +3636,7 @@ PrefabInstance:
     - target: {fileID: 3115108285615072095, guid: 8535669230a2e354f80b27eb8c90cd20,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 3115108285615072095, guid: 8535669230a2e354f80b27eb8c90cd20,
         type: 3}
@@ -3721,6 +3721,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player - Atanas
       objectReference: {fileID: 0}
+    - target: {fileID: 6421897924219610779, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421897924219610779, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421897924219610779, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.69
+      objectReference: {fileID: 0}
     - target: {fileID: 6555674493575791231, guid: e6fe2380b0cb83541b54807317073317,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3771,6 +3786,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8038537856914399340, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: brielle
+      value: 
+      objectReference: {fileID: 1981637131}
+    - target: {fileID: 8038537856914399340, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: runningSound
+      value: 
+      objectReference: {fileID: 1986976254}
+    - target: {fileID: 8038537856914399340, guid: e6fe2380b0cb83541b54807317073317,
+        type: 3}
+      propertyPath: walkingSound
+      value: 
+      objectReference: {fileID: 1714556303}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
