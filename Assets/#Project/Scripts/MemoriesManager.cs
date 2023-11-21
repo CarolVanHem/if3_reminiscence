@@ -10,10 +10,10 @@ public class MemoriesManager : MonoBehaviour
     public void MemoryPickedUp()
     {
         memoriesFound += 1;
-        checkClearRubble();
+        checkClearClouds();
     }
  
-    void checkClearRubble()
+    void checkClearClouds()
     {
         if (memoriesFound >= AmountToClear)
             gameObject.SetActive(false); //or destroy

@@ -10,6 +10,7 @@ using UnityEngine.Rendering.Universal.Internal;
 public class Brielle : MonoBehaviour
 {
     public enum BrielleState{
+        Idle,
         Wandering,
         Chasing
     }
@@ -22,8 +23,9 @@ public class Brielle : MonoBehaviour
     public float maxViewDistance = 7;
     public float maxViewAngle = 360;
     [HideInInspector] public Brielle brielle;
-    public float chasingSpeed = 6f;
-    public float wanderingSpeed = 2f;
+    public float chasingSpeed = 18f;
+    public float wanderingSpeed = 4f;
+    public float idleSpeed = 0f;
 
     void Start ()
     {
@@ -37,8 +39,13 @@ public class Brielle : MonoBehaviour
     {
         switch (state)
         {
+            //case BrielleState.Idle:
+                
+                //break;
+
             case BrielleState.Wandering:
             agent.speed = wanderingSpeed;
+            
                 
                 if(IsPlayerVisible()){
                     state = BrielleState.Chasing;
@@ -54,7 +61,6 @@ public class Brielle : MonoBehaviour
             case BrielleState.Chasing:
                 FollowPlayer();
                 agent.speed = chasingSpeed;
-                
 
                 if(!IsPlayerVisible()){
                     state = BrielleState.Wandering;
@@ -116,6 +122,7 @@ public class Brielle : MonoBehaviour
         switch(state){
             case BrielleState.Chasing: color = Color.red; break;
             case BrielleState.Wandering: color = Color.cyan; break;
+            case BrielleState.Idle: color = Color.green; break;
         }
         color.a = 0.2f;
         Gizmos.color = color; 

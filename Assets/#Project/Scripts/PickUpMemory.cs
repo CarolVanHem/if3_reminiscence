@@ -12,6 +12,7 @@ public class PickUpMemory : MonoBehaviour
 
     public MemoriesManager memoriesManager;
 
+
     void OnEnable()
     {
         actions.FindActionMap("Player").Enable();
@@ -34,6 +35,7 @@ public class PickUpMemory : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
             {
+                Debug.Log($"{hit.collider.name}");
                 if (hit.transform.gameObject.tag == "Memory1")
                 {
                     FirstMemoryFound();
