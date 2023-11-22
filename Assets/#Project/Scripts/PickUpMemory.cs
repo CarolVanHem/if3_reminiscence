@@ -9,9 +9,8 @@ public class PickUpMemory : MonoBehaviour
     private InputAction collectMemory;
     public float pickUpRange = 5f; 
     public GameObject[] foundMemory;
-
     public MemoriesManager memoriesManager;
-
+    public DissolveMemory dissolveMemory;
 
     void OnEnable()
     {
@@ -38,6 +37,7 @@ public class PickUpMemory : MonoBehaviour
                 Debug.Log($"{hit.collider.name}");
                 if (hit.transform.gameObject.tag == "Memory1")
                 {
+                    //memory found true -- tableau de bool pour les souvenirs trouvés
                     FirstMemoryFound();
                 }
 
@@ -61,7 +61,8 @@ public class PickUpMemory : MonoBehaviour
 
     public void FirstMemoryFound()
     {
-        Destroy(foundMemory[0]);
+        dissolveMemory.StartCoroutine("DoDissolve");
+
         memoriesManager.MemoryPickedUp();
 
         //play fragment of memory
@@ -69,7 +70,8 @@ public class PickUpMemory : MonoBehaviour
 
     public void SecondMemoryFound()
     {
-        Destroy(foundMemory[1]);
+        dissolveMemory.StartCoroutine("DoDissolve");
+
         memoriesManager.MemoryPickedUp();
 
         //play fragment of memory
