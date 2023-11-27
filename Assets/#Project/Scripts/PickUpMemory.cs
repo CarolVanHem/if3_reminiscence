@@ -10,7 +10,8 @@ public class PickUpMemory : MonoBehaviour
     public float pickUpRange = 5f; 
     public GameObject[] foundMemory;
     public MemoriesManager memoriesManager;
-    public DissolveMemory dissolveMemory;
+    
+    //public DissolveMemory dissolveMemory;
 
     void OnEnable()
     {
@@ -61,8 +62,8 @@ public class PickUpMemory : MonoBehaviour
 
     public void FirstMemoryFound()
     {
-        dissolveMemory.StartCoroutine("DoDissolve");
-
+        //dissolveMemory.StartCoroutine("DoDissolve");
+        Destroy(foundMemory[0]);
         memoriesManager.MemoryPickedUp();
 
         //play fragment of memory
@@ -70,8 +71,8 @@ public class PickUpMemory : MonoBehaviour
 
     public void SecondMemoryFound()
     {
-        dissolveMemory.StartCoroutine("DoDissolve");
-
+        //dissolveMemory.StartCoroutine("DoDissolve");
+        Destroy(foundMemory[1]);
         memoriesManager.MemoryPickedUp();
 
         //play fragment of memory
