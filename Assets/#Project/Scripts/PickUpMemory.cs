@@ -7,11 +7,16 @@ public class PickUpMemory : MonoBehaviour
 {
     public InputActionAsset actions;
     private InputAction collectMemory;
-    public float pickUpRange = 5f; 
-    public GameObject[] foundMemory;
+    public float pickUpRange = 5f;
+    public List<GameObject> foundMemory;
     public MemoriesManager memoriesManager;
-    
-    //public DissolveMemory dissolveMemory;
+
+    /*
+    public GameObject memory1;
+    public GameObject memory2;
+    public GameObject memory3;
+    public GameObject memory4;
+    */
 
     void OnEnable()
     {
@@ -30,68 +35,31 @@ public class PickUpMemory : MonoBehaviour
 
     void Update()
     {
-        if (collectMemory.IsPressed()) 
+        if (collectMemory.IsPressed())
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            Debug.Log($"Screen: {Screen.width}x{Screen.height}");
+            Ray ray = Camera.main.ScreenPointToRay(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+            if (Physics.Raycast(ray, out hit, pickUpRange))
             {
+                Debug.DrawLine(ray.origin, hit.point, Color.red, 10f);
                 Debug.Log($"{hit.collider.name}");
-                if (hit.transform.gameObject.tag == "Memory1")
+                GameObject found = hit.collider.gameObject;
+                if (foundMemory.Contains(found))
                 {
-                    //memory found true -- tableau de bool pour les souvenirs trouvés
-                    FirstMemoryFound();
-                }
-
-                if (hit.transform.gameObject.tag == "Memory2")
-                {
-                    SecondMemoryFound();
-                }
-
-                if (hit.transform.gameObject.tag == "Memory3")
-                {
-                    ThirdMemoryFound();
-                }
-
-                if (hit.transform.gameObject.tag == "Memory4")
-                {
-                    FourthMemoryFound();
+                print(found.name);
+                    MemoryFound(found);
                 }
             }
         }
     }
 
-    public void FirstMemoryFound()
+    public void MemoryFound(GameObject memory)
     {
-        //dissolveMemory.StartCoroutine("DoDissolve");
-        Destroy(foundMemory[0]);
+        DissolveMemory dissolveMemory = memory.GetComponent<DissolveMemory>();
+        dissolveMemory.Dissolve();
+        
         memoriesManager.MemoryPickedUp();
-
-        //play fragment of memory
-    }
-
-    public void SecondMemoryFound()
-    {
-        //dissolveMemory.StartCoroutine("DoDissolve");
-        Destroy(foundMemory[1]);
-        memoriesManager.MemoryPickedUp();
-
-        //play fragment of memory
-    }
-
-    public void ThirdMemoryFound()
-    {
-        Destroy(foundMemory[2]);
-        memoriesManager.MemoryPickedUp();
-
-        //play fragment of memory
-    }
-
-    public void FourthMemoryFound()
-    {
-        Destroy(foundMemory[3]);
-        memoriesManager.MemoryPickedUp();
-
-        //play fragment of memory
     }
 
 }

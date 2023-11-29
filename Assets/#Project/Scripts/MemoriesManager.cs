@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MemoriesManager : MonoBehaviour
 {
@@ -16,6 +17,6 @@ public class MemoriesManager : MonoBehaviour
     void checkClearClouds()
     {
         if (memoriesFound >= AmountToClear)
-            gameObject.SetActive(false); //or destroy
+            gameObject.SetActive(false); 
     }
 }

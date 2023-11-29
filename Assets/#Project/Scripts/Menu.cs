@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void RunGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("VideoStart");
     }
 
     public void Credits()

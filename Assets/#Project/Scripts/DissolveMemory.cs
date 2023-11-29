@@ -5,9 +5,17 @@ using UnityEngine;
 public class DissolveMemory : MonoBehaviour
 {
     public Material mat;
-        
+    
+    public void Dissolve(){
+        Collider collider = GetComponent<Collider>();
+        if(collider != null) collider.enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if(rb != null) rb.useGravity = false;
+        StartCoroutine(DoDissolve());
+    }
     IEnumerator DoDissolve()
     {
+        print("test:D");
         GetComponent<Renderer>().material = mat;
         mat.SetFloat("_Dissolve_Level", 0);
         

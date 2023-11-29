@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/#Project/Scenes/Menu.unity
     guid: d8f9d32552004634490d2157646941eb
   - enabled: 1
-    path: Assets/#Project/Scenes/Tests/TestImport.unity
-    guid: b2818a38253bd5141ae7394728ccb588
+    path: Assets/#Project/Scenes/VideoStart.unity
+    guid: eaba935530d596c4da48853cb0489f44
+  - enabled: 1
+    path: Assets/#Project/Scenes/Attic.unity
+    guid: c591af65e73f2be4c9db6ddbdbfae09e
+  - enabled: 1
+    path: Assets/#Project/Scenes/FirstMemory.unity
+    guid: 37420bad27f983e4a8553daaabb1ab84
   m_configObjects: {}
