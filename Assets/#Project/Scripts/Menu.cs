@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    //public Animator transition;
+    //public float transitionTime = 1f;
     public void RunGame()
     {
+        //StartCoroutine(LoadLevel(1));
         SceneManager.LoadScene("VideoStart");
     }
 
@@ -20,5 +23,15 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+/*
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
+*/
 
 }
