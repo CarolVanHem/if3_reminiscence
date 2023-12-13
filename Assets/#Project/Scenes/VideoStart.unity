@@ -509,27 +509,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'What we''ll see :
+  m_text: 'What we''ll see & hear :
 
 
-    - Whooshing sounds of memories being wiped out
+    - Whooshing sounds of memories being wiped
+    out
 
 
-    -
-    Elements are clearly audible (names, specific parts that we''ll see again later
-    in the found memories)
+    - Some elements are clearly audible - such as names, ambient sounds,
+    specific parts that we''ll see later again in the found memories
 
 
-    - Colours drained towards B&W
+    - Colours
+    drained, becoming B&W
 
 
-    - Memories fading
-    in a whirlwind
+    - Memories fading in a whirlwind
 
 
-    - Just as everything grows darker and darker, with fewer
-    memories to drain, a noise in the distance STOPS the motion.... and we transition
-    to the game.'
+    - Just as
+    everything grows darker and darker, with fewer memories to drain, a noise in
+    the distance STOPS the motion.... and we transition to the game'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8876f12b6c989d4d91af2ee95f4a02f, type: 2}
   m_sharedMaterial: {fileID: -8817357141705041951, guid: c8876f12b6c989d4d91af2ee95f4a02f,
