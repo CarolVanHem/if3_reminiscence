@@ -16,7 +16,7 @@ public class FirstVideoToAttic : MonoBehaviour
     }
  
  
-     void CheckOver(UnityEngine.Video.VideoPlayer video)
+    void CheckOver(UnityEngine.Video.VideoPlayer video)
     {
         SceneManager.LoadScene("Attic");
     }
