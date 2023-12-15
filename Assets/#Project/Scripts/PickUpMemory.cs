@@ -10,6 +10,7 @@ public class PickUpMemory : MonoBehaviour
     public float pickUpRange = 5f;
     public List<GameObject> foundMemory;
     public MemoriesManager memoriesManager;
+    public bool seesMemory = false;
 
     /*
     public GameObject memory1;
@@ -35,6 +36,8 @@ public class PickUpMemory : MonoBehaviour
 
     void Update()
     {
+        HighlightMemoryInSight();
+
         if (collectMemory.IsPressed())
         {
             RaycastHit hit;
@@ -62,4 +65,29 @@ public class PickUpMemory : MonoBehaviour
         memoriesManager.MemoryPickedUp();
     }
 
+    
+
+    void MemoryInSight(GameObject highlight)
+    {
+        HighlightMemory highlightMemory = highlight.GetComponent<HighlightMemory>();
+        highlightMemory.Highlight();
+    }
+
+    void HighlightMemoryInSight()
+    {
+        RaycastHit hit;    
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+        if (Physics.Raycast(ray, out hit, pickUpRange))
+        {
+            Debug.DrawLine(ray.origin, hit.point, Color.red, 10f);
+            Debug.Log($"{hit.collider.name}");
+            GameObject seen = hit.collider.gameObject;
+            if (foundMemory.Contains(seen))
+            {
+                MemoryInSight(seen);
+            }
+        }
+    }
+
+    
 }
