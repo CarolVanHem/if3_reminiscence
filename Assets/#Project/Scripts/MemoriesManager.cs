@@ -10,6 +10,9 @@ public class MemoriesManager : MonoBehaviour
     public PickUpMemory memory;
     public GameObject video;
     public VideoPlayer videoPlayer;
+    public GameObject light6;
+
+    public AudioSource LVL1;
     
     public void MemoryPickedUp()
     {
@@ -22,6 +25,8 @@ public class MemoriesManager : MonoBehaviour
         if (memoriesFound >= AmountToClear)
         {
             gameObject.SetActive(false); 
+            light6.SetActive(true); 
+            LVL1.enabled = false;
 
             video.SetActive(true);
             videoPlayer.Play(); 

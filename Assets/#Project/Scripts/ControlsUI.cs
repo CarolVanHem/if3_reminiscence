@@ -16,9 +16,16 @@ public class ControlsUI : MonoBehaviour
     public GameObject light3;
     public GameObject light4;
     public GameObject light5;
+    public GameObject light6;
 
     public GameObject videoMemory;
     public VideoPlayer videoPlayer;
+
+    public AudioSource LVL1;
+    public AudioSource LVL2;
+    public AudioSource radio;
+    public AudioSource creaking;
+    public AudioSource switchLight;
 
     void OnTriggerEnter()
     {
@@ -31,9 +38,16 @@ public class ControlsUI : MonoBehaviour
         light3.SetActive(false);
         light4.SetActive(false);
         light5.SetActive(false);
+        light6.SetActive(false);
 
         videoMemory.SetActive(false);
         videoPlayer.Pause();
+
+        LVL1.enabled = true;
+        LVL2.enabled = false;
+        radio.enabled = false;
+        creaking.enabled = false;
+        switchLight.enabled = false;
     }
 
     void OnTriggerExit ()
